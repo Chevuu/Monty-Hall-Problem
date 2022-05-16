@@ -6,5 +6,11 @@
 * The solution is that switching will let you win twice as often as sticking with the original choice, a result that seems counterintuitive to many. The Monty Hall problem famously embarrassed a large number of mathematicians with doctorate degrees when they attempted to "correct" Marilyn vos Savant's solution in a column in Parade Magazine.
 
 ### Why?
-* This program is made to practically prove that official solution is correct.
+* I wanted to test my JavaScript knowledge without watching yt tutorials and with as little internet searching as possible. Thus, this took 6 to 8 hours until this commit.
+
+
+### Future Improvements
+1) Styling as responsiveness.
+2) Some kind of gudinace for the player because average player wouldn't know what to do.
+3) Description inside the game and maybe a link to yt video.
 
