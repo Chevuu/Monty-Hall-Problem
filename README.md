@@ -10,7 +10,7 @@
 
 
 ### Future Improvements
-1) Styling as responsiveness.
+1) Styling and responsiveness.
 2) Some kind of gudinace for the player because average player wouldn't know what to do.
 3) Description inside the game and maybe a link to yt video.
 
