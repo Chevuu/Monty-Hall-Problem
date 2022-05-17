@@ -7,10 +7,3 @@
 
 ### Why?
 * I wanted to test my JavaScript knowledge without watching yt tutorials and with as little internet searching as possible. Thus, this took 6 to 8 hours until this commit.
-
-
-### Future Improvements
-1) Styling and responsiveness.
-2) Some kind of gudinace for the player because average player wouldn't know what to do.
-3) Description inside the game and maybe a link to yt video.
-
