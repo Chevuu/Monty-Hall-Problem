@@ -21,13 +21,13 @@
 
 @keyframes switch-animation {
   0% {
-    width: 50%;
+    width: 40%;
   }
   50% {
-    width: 80%;
+    width: 60%;
   }
   100% {
-    width: 50%;
+    width: 40%;
   }
 }
 
@@ -73,17 +73,16 @@ body {
     background-color: rgba(98, 98, 98, 0.3);
 
     &__doors {
-      margin-left: 50%;
-      transform: translateX(-50%);
-      width: 96vh;
+      margin-left: 5%;
+      width: 90%;
       height: 32vh;
       display: flex;
       flex-direction: row;
 
       #doorStyle {
-        margin: 2vh 0 0 3vh;
+        margin: 2vh 2% 0 2%;
         height: 28vh;
-        width: 28vh;
+        width: 29.33%;
         border-radius: 5%;
       }
 
@@ -105,6 +104,14 @@ body {
 
       .selected {
         border: 6px solid black;
+        justify-content: center;
+        align-items: center;
+
+        &::after {
+          content: "SELECTED";
+          font-size: 2vw;
+          text-align: center;
+        }
 
         .fa {
           color: rgba(255, 253, 145, 1);
@@ -118,7 +125,7 @@ body {
         i {
           font-size: 10rem;
           margin-left: 50%;
-          margin-top: 50%;
+          margin-top: 14vh;
           transform: translate(-50%, -50%);
         }
 
@@ -133,28 +140,65 @@ body {
     }
     @media screen and (max-width: 1000px) {
       &__doors {
-        width: 84vh;
-        height: 32vh;
+        height: 28vh;
 
         #doorStyle {
-          margin: 2vh 0 0 3vh;
+          margin: 2vh 2% 0 2%;
           height: 24vh;
-          width: 24vh;
+          width: 29.33%;
+        }
+
+        .opened i {
+          font-size: 9rem;
+          margin-top: 12vh;
         }
       }
     }
 
     @media screen and (max-width: 840px) {
       &__doors {
-        width: 68vh;
-        height: 32vh;
+        height: 25vh;
 
         #doorStyle {
-          margin: 1vh 0 0 2vh;
-          height: 20vh;
-          width: 20vh;
+          margin: 2vh 2% 0 2%;
+          height: 21vh;
+          width: 29.33%;
+        }
+
+        .opened i {
+          font-size: 7.5rem;
+          margin-top: 10.5vh;
         }
       }
+    }
+
+    @media screen and (max-width: 640px) {
+      &__doors {
+        height: 22vh;
+
+        #doorStyle {
+          margin: 1.5vh 1.6% 0 1.6%;
+          height: 19vh;
+          width: 29.33%;
+        }
+
+        .opened i {
+          font-size: 6rem;
+          margin-top: 9.5vh;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    .game {
+      height: 85vh;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .game {
+      height: 90vh;
     }
   }
 
@@ -166,69 +210,157 @@ body {
     transform: translateX(-50%);
     text-align: center;
 
-    &::before {
-      content: "";
-      position: absolute;
-      left: 50%;
-      margin-top: 0vh;
-      height: 3px;
-      width: 75%;
-      transform: translateX(-50%);
-      background-color: black;
-      animation-name: switch-animation;
-      animation-duration: 2s;
-      animation-iteration-count: infinite;
-      animation-timing-function: ease-in-out;
-    }
     &::after {
       content: "";
       position: absolute;
       left: 50%;
-      margin-top: 4.5vh;
-      height: 3px;
+      margin-top: 36px;
+      height: 1px;
       width: 75%;
       transform: translateX(-50%);
       background-color: black;
       animation-name: switch-animation;
-      animation-delay: 1s;
       animation-duration: 2s;
       animation-iteration-count: infinite;
       animation-timing-function: ease-in-out;
     }
   }
+  @media screen and (max-width: 1000px) {
+    .instructions {
+      font-size: 26px;
+      margin-top: 9px;
+      width: 360px;
+
+      &::after {
+        margin-top: 32px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 840px) {
+    .instructions {
+      font-size: 24px;
+      margin-top: 8px;
+      width: 320px;
+
+      &::after {
+        margin-top: 28px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    .instructions {
+      font-size: 22px;
+      margin-top: 7px;
+      width: 280px;
+
+      &::after {
+        margin-top: 26px;
+      }
+    }
+  }
 
   .info {
-    margin-top: 6vh;
-    margin-left: 15%;
+    margin-top: 3vh;
+    margin-left: 10%;
     width: 80%;
+    justify-content: center;
 
-    .button {
-      font-size: 20px;
-      height: 60px;
-      width: 120px;
-      margin-right: 15px;
-      border-radius: 15px;
-      transition: 0.3s;
+    .buttons {
+      width: 100%;
 
-      &:hover {
-        background-color: rgba(255, 253, 145, 1);
-        cursor: grab;
+      .button {
+        font-size: 20px;
+        height: 60px;
+        width: 28%;
+        margin: 0 2% 0 2%;
+        border-radius: 15px;
+        transition: 0.3s;
+
+        &:hover {
+          background-color: rgba(255, 253, 145, 1);
+          cursor: grab;
+        }
       }
     }
 
     .data {
+      text-align: center;
+      width: 100%;
       margin-top: 12px;
       font-size: 20px;
       transition: 0.6s;
 
       &:hover {
-        margin-left: 10px;
         background: linear-gradient(
           90deg,
+          rgba(255, 255, 255, 0) 10%,
           rgba(0, 0, 0, 0.1),
           rgba(255, 255, 255, 0) 90%
         );
         cursor: pointer;
+      }
+    }
+    @media screen and (max-width: 1000px) {
+      .buttons {
+        .button {
+          font-size: 19px;
+          height: 55px;
+        }
+      }
+    }
+
+    @media screen and (max-width: 840px) {
+      .buttons {
+        .button {
+          font-size: 18px;
+          height: 50px;
+        }
+      }
+    }
+
+    @media screen and (max-width: 640px) {
+      .buttons {
+        .button {
+          font-size: 17px;
+          height: 42px;
+        }
+      }
+    }
+
+    @media screen and (max-width: 490px) {
+      .buttons {
+        .button {
+          font-size: 15px;
+          height: 45px;
+          width: 30%;
+          margin: 0 1% 0 1%;
+          border-radius: 11px;
+        }
+      }
+    }
+
+    @media screen and (max-width: 390px) {
+      .buttons {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+
+        .button {
+          display: flex; 
+          flex-basis: calc(50% - 40px);
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          margin: 0 5% 2% 5%;
+          width: 40%;
+          font-size: 15px;
+          height: 55px;
+          border-radius: 11px;
+        }
       }
     }
   }

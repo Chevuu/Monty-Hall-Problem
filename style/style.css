@@ -33,25 +33,25 @@
 
 @-webkit-keyframes switch-animation {
   0% {
-    width: 50%;
+    width: 40%;
   }
   50% {
-    width: 80%;
+    width: 60%;
   }
   100% {
-    width: 50%;
+    width: 40%;
   }
 }
 
 @keyframes switch-animation {
   0% {
-    width: 50%;
+    width: 40%;
   }
   50% {
-    width: 80%;
+    width: 60%;
   }
   100% {
-    width: 50%;
+    width: 40%;
   }
 }
 
@@ -109,10 +109,8 @@ body .game {
 }
 
 body .game__doors {
-  margin-left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  width: 96vh;
+  margin-left: 5%;
+  width: 90%;
   height: 32vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -124,9 +122,9 @@ body .game__doors {
 }
 
 body .game__doors #doorStyle {
-  margin: 2vh 0 0 3vh;
+  margin: 2vh 2% 0 2%;
   height: 28vh;
-  width: 28vh;
+  width: 29.33%;
   border-radius: 5%;
 }
 
@@ -149,6 +147,18 @@ body .game__doors .closed .fa {
 
 body .game__doors .selected {
   border: 6px solid black;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .game__doors .selected::after {
+  content: "SELECTED";
+  font-size: 2vw;
+  text-align: center;
 }
 
 body .game__doors .selected .fa {
@@ -164,7 +174,7 @@ body .game__doors .opened {
 body .game__doors .opened i {
   font-size: 10rem;
   margin-left: 50%;
-  margin-top: 50%;
+  margin-top: 14vh;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
 }
@@ -179,25 +189,58 @@ body .game__doors .opened .fa-check {
 
 @media screen and (max-width: 1000px) {
   body .game__doors {
-    width: 84vh;
-    height: 32vh;
+    height: 28vh;
   }
   body .game__doors #doorStyle {
-    margin: 2vh 0 0 3vh;
+    margin: 2vh 2% 0 2%;
     height: 24vh;
-    width: 24vh;
+    width: 29.33%;
+  }
+  body .game__doors .opened i {
+    font-size: 9rem;
+    margin-top: 12vh;
   }
 }
 
 @media screen and (max-width: 840px) {
   body .game__doors {
-    width: 68vh;
-    height: 32vh;
+    height: 25vh;
   }
   body .game__doors #doorStyle {
-    margin: 1vh 0 0 2vh;
-    height: 20vh;
-    width: 20vh;
+    margin: 2vh 2% 0 2%;
+    height: 21vh;
+    width: 29.33%;
+  }
+  body .game__doors .opened i {
+    font-size: 7.5rem;
+    margin-top: 10.5vh;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  body .game__doors {
+    height: 22vh;
+  }
+  body .game__doors #doorStyle {
+    margin: 1.5vh 1.6% 0 1.6%;
+    height: 19vh;
+    width: 29.33%;
+  }
+  body .game__doors .opened i {
+    font-size: 6rem;
+    margin-top: 9.5vh;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  body .game {
+    height: 85vh;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  body .game {
+    height: 90vh;
   }
 }
 
@@ -211,40 +254,18 @@ body .instructions {
   text-align: center;
 }
 
-body .instructions::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  margin-top: 0vh;
-  height: 3px;
-  width: 75%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  background-color: black;
-  -webkit-animation-name: switch-animation;
-          animation-name: switch-animation;
-  -webkit-animation-duration: 2s;
-          animation-duration: 2s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-timing-function: ease-in-out;
-          animation-timing-function: ease-in-out;
-}
-
 body .instructions::after {
   content: "";
   position: absolute;
   left: 50%;
-  margin-top: 4.5vh;
-  height: 3px;
+  margin-top: 36px;
+  height: 1px;
   width: 75%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   background-color: black;
   -webkit-animation-name: switch-animation;
           animation-name: switch-animation;
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
   -webkit-animation-duration: 2s;
           animation-duration: 2s;
   -webkit-animation-iteration-count: infinite;
@@ -253,29 +274,71 @@ body .instructions::after {
           animation-timing-function: ease-in-out;
 }
 
-body .info {
-  margin-top: 6vh;
-  margin-left: 15%;
-  width: 80%;
+@media screen and (max-width: 1000px) {
+  body .instructions {
+    font-size: 26px;
+    margin-top: 9px;
+    width: 360px;
+  }
+  body .instructions::after {
+    margin-top: 32px;
+  }
 }
 
-body .info .button {
+@media screen and (max-width: 840px) {
+  body .instructions {
+    font-size: 24px;
+    margin-top: 8px;
+    width: 320px;
+  }
+  body .instructions::after {
+    margin-top: 28px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  body .instructions {
+    font-size: 22px;
+    margin-top: 7px;
+    width: 280px;
+  }
+  body .instructions::after {
+    margin-top: 26px;
+  }
+}
+
+body .info {
+  margin-top: 3vh;
+  margin-left: 10%;
+  width: 80%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body .info .buttons {
+  width: 100%;
+}
+
+body .info .buttons .button {
   font-size: 20px;
   height: 60px;
-  width: 120px;
-  margin-right: 15px;
+  width: 28%;
+  margin: 0 2% 0 2%;
   border-radius: 15px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
-body .info .button:hover {
+body .info .buttons .button:hover {
   background-color: #fffd91;
   cursor: -webkit-grab;
   cursor: grab;
 }
 
 body .info .data {
+  text-align: center;
+  width: 100%;
   margin-top: 12px;
   font-size: 20px;
   -webkit-transition: 0.6s;
@@ -283,9 +346,79 @@ body .info .data {
 }
 
 body .info .data:hover {
-  margin-left: 10px;
-  background: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.1)), color-stop(90%, rgba(255, 255, 255, 0)));
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0) 90%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(10%, rgba(255, 255, 255, 0)), color-stop(rgba(0, 0, 0, 0.1)), color-stop(90%, rgba(255, 255, 255, 0)));
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 10%, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0) 90%);
   cursor: pointer;
+}
+
+@media screen and (max-width: 1000px) {
+  body .info .buttons .button {
+    font-size: 19px;
+    height: 55px;
+  }
+}
+
+@media screen and (max-width: 840px) {
+  body .info .buttons .button {
+    font-size: 18px;
+    height: 50px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  body .info .buttons .button {
+    font-size: 17px;
+    height: 42px;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  body .info .buttons .button {
+    font-size: 15px;
+    height: 45px;
+    width: 30%;
+    margin: 0 1% 0 1%;
+    border-radius: 11px;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  body .info .buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  body .info .buttons .button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-preferred-size: calc(50% - 40px);
+        flex-basis: calc(50% - 40px);
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+    margin: 0 5% 2% 5%;
+    width: 40%;
+    font-size: 15px;
+    height: 55px;
+    border-radius: 11px;
+  }
 }
 /*# sourceMappingURL=style.css.map */

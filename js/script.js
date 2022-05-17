@@ -1,28 +1,34 @@
 const instructionText = document.querySelector(".instructions");
-instructionText.style.visibility = "hidden";
 const playAgainButton = document.querySelector("#play-again");
-playAgainButton.disabled = true;
 const switchButton = document.querySelector("#switch");
-switchButton.style.visibility = "hidden";
 const stayButton = document.querySelector("#stay");
-stayButton.style.visibility = "hidden";
 const totalSwitches = document.querySelector("#switches");
-let totalSwitchesCounter = 0;
 const switchesWinRate = document.querySelector("#switches-win-rate");
-let switchesWinCounter = 0;
 const totalStays = document.querySelector("#stays");
-let totalStaysCounter = 0;
 const staysWinRate = document.querySelector("#stays-win-rate");
-let staysWinCounter = 0;
+const totalGamesPlayed = document.querySelector("#total-games");
 const doors = document.querySelectorAll("[door]");
 const icons = document.querySelectorAll("[icon]");
+
+instructionText.style.visibility = "hidden";
+playAgainButton.disabled = true;
+switchButton.style.visibility = "hidden";
+stayButton.style.visibility = "hidden";
+
+let switchesWinCounter = 0;
+let totalSwitchesCounter = 0;
+let staysWinCounter = 0;
+let totalStaysCounter = 0;
 let totalGames = 0;
 let correctDoorNumber = -1;
 let currentlySelected = -1;
 let alreadyOpened = -1;
+let oneDoorAlreadyOpen = false;
 
+// Called to start the first game since Play Again button isn't in use at the moment
 playAgain();
 
+// Generates the index of the correct door
 function generateRandomNUmberUpTo3() {
   return Math.floor(Math.random() * 3);
 }
@@ -37,6 +43,7 @@ function playAgain() {
   instructionText.innerText = "Choose a door";
   instructionText.style.visibility = "visible";
   setIcons(correctDoorNumber);
+  oneDoorAlreadyOpen = false;
 }
 
 // Setting icons into doors
@@ -53,7 +60,6 @@ function setIcons(correctAnswerIndex) {
     }
   });
 }
-
 doors.forEach(function (door, i) {
   door.addEventListener("click", () => {
     doorChosen(i, correctDoorNumber);
@@ -61,31 +67,34 @@ doors.forEach(function (door, i) {
 });
 
 function doorChosen(index, correctAnswerIndex) {
-  currentlySelected = index;
-  let randomDoorShown = false;
-  let doorToBeOpenedIndex;
-  while (!randomDoorShown) {
-    doorToBeOpenedIndex = generateRandomNUmberUpTo3();
-    if (
-      doorToBeOpenedIndex != correctAnswerIndex &&
-      doorToBeOpenedIndex != index
-    ) {
-      doors.forEach(function (door, i) {
-        if (i === doorToBeOpenedIndex && !randomDoorShown) {
-          door.classList.remove("closed");
-          door.classList.add("opened");
-          alreadyOpened = doorToBeOpenedIndex;
-          randomDoorShown = true;
-        }
-      });
+  if (!oneDoorAlreadyOpen) {
+    currentlySelected = index;
+    let randomDoorShown = false;
+    let doorToBeOpenedIndex;
+    while (!randomDoorShown) {
+      doorToBeOpenedIndex = generateRandomNUmberUpTo3();
+      if (
+        doorToBeOpenedIndex != correctAnswerIndex &&
+        doorToBeOpenedIndex != index
+      ) {
+        doors.forEach(function (door, i) {
+          if (i === doorToBeOpenedIndex && !randomDoorShown) {
+            door.classList.remove("closed");
+            door.classList.add("opened");
+            alreadyOpened = doorToBeOpenedIndex;
+            randomDoorShown = true;
+          }
+        });
+      }
     }
+    doors.forEach(function (door, i) {
+      if (i === index) {
+        door.classList.add("selected");
+      }
+    });
+    switchingTime();
+    oneDoorAlreadyOpen = true;
   }
-  doors.forEach(function (door, i) {
-    if (i === index) {
-      door.classList.add("selected");
-    }
-  });
-  switchingTime();
 }
 
 function switchingTime() {
@@ -163,6 +172,7 @@ function updateData() {
     staysWinRate.innerText = (staysWinCounter / totalStaysCounter) * 100 + "%";
   }
   instructionText.style.visibility = "hidden";
+  totalGamesPlayed.innerText = totalGames;
   setTimeout(function () {
     playAgain();
   }, 1000);
